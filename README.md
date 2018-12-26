@@ -1,6 +1,6 @@
 # My Calendar
 
-Powerful Calendar application which enhences your experiences on using calendar. 
+Powerful Calendar application which enhences your experience on using calendar. 
 
 ## Getting Started
 
