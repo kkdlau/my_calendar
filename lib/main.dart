@@ -4,12 +4,11 @@ import './calendar.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(primaryColor: Colors.indigo[900]),
-      title: 'My Calender',
+      title: 'My Calendar',
       home: Scaffold(
         appBar: AppBar(
           title: Row(
@@ -22,6 +21,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
         body: Calendar(),
+        bottomNavigationBar: BottomNavigationBar(
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.calendar_today), title: Text('Calendar')),
+            BottomNavigationBarItem(icon: Icon(Icons.schedule), title: Text('Today Schedule')),
+            BottomNavigationBarItem(icon: Icon(Icons.settings), title: Text('Setting')),
+          ],
+        ),
       ),
     );
   }

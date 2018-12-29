@@ -3,7 +3,6 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel;
 
 class Calendar extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     return _Calendar();
@@ -21,11 +20,14 @@ class _Calendar extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
-    return CalendarCarousel(
-      selectedDateTime: _selectedDay,
-      onDayPressed: (DateTime time, List event) {
-        selectedTime = time;
-      }
+    return Container(
+      margin: EdgeInsets.all(15),
+      child: CalendarCarousel(
+        selectedDateTime: _selectedDay,
+        onDayPressed: (DateTime time, List event) {
+          selectedTime = time;
+        },
+      ),
     );
   }
 }
