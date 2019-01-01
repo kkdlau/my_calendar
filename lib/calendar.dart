@@ -10,7 +10,7 @@ class Calendar extends StatefulWidget {
   }
 }
 
-class _Calendar extends State<Calendar> {
+class _Calendar extends State<Calendar> with AutomaticKeepAliveClientMixin<Calendar> {
   DateTime _selectedDay;
 
   set selectedTime(DateTime time) {
@@ -18,7 +18,9 @@ class _Calendar extends State<Calendar> {
       _selectedDay = time;
     });
   }
-
+  @override
+    bool get wantKeepAlive => true;
+    
   @override
   Widget build(BuildContext context) {
     print('Built build()');

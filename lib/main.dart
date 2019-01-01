@@ -9,7 +9,7 @@ void main() {
   runApp(MyApp());
 }
 
-PageController pageController = PageController();
+PageController pageController = PageController(initialPage: 0, keepPage: true);
 
 class MyApp extends StatefulWidget {
   @override
