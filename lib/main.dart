@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import './calendar.dart';
+import './schedule.dart';
+import './setting.dart';
 
 final Widget calendar = Calendar();
-final Widget otherPage2 = Center(child: Text('this is page 2'));
-final Widget otherPage3 = Center(child: Text('this is page 3'));
+final Widget schedule = Schedule();
+final Widget setting = Setting();
 
 void main() {
   runApp(MyApp());
 }
 
-PageController pageController = PageController(initialPage: 0, keepPage: true);
+final PageController pageController =
+    PageController(initialPage: 0, keepPage: true);
 
 class MyApp extends StatefulWidget {
   @override
@@ -20,7 +23,12 @@ class MyApp extends StatefulWidget {
 
 class _MyApp extends State<MyApp> {
   int _index = 0;
-
+  List<String> appBarTitle = ['My Calendar', 'Today Schedule', 'Setting'];
+  List<IconData> appBarIcon = [
+    Icons.calendar_today,
+    Icons.schedule,
+    Icons.settings
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,9 +39,9 @@ class _MyApp extends State<MyApp> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Icon(IconData(0xe935, fontFamily: 'MaterialIcons')),
+              Icon(appBarIcon[_index]),
               SizedBox(width: 10),
-              Text('My Calendar')
+              Text(appBarTitle[_index])
             ],
           ),
         ),
@@ -44,7 +52,7 @@ class _MyApp extends State<MyApp> {
             });
           },
           controller: pageController,
-          children: <Widget>[calendar, otherPage2, otherPage3],
+          children: <Widget>[calendar, schedule, setting],
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _index,
@@ -57,11 +65,11 @@ class _MyApp extends State<MyApp> {
           },
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today), title: Text('Calendar')),
+                icon: Icon(appBarIcon[0]), title: Text(appBarTitle[0])),
             BottomNavigationBarItem(
-                icon: Icon(Icons.schedule), title: Text('Today Schedule')),
+                icon: Icon(appBarIcon[1]), title: Text(appBarTitle[1])),
             BottomNavigationBarItem(
-                icon: Icon(Icons.settings), title: Text('Setting')),
+                icon: Icon(appBarIcon[2]), title: Text(appBarTitle[2])),
           ],
         ),
       ),
