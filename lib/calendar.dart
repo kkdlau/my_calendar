@@ -5,6 +5,7 @@ import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
 class Calendar extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
+    print('Built createState()');
     return _Calendar();
   }
 }
@@ -20,6 +21,7 @@ class _Calendar extends State<Calendar> {
 
   @override
   Widget build(BuildContext context) {
+    print('Built build()');
     return Container(
       margin: EdgeInsets.all(15),
       child: CalendarCarousel(
